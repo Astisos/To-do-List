@@ -43,6 +43,10 @@ body {
     &__input:hover, &__input:focus {
         outline: 2px solid rgba(28,110,164,0.74);
     }
+    &__error {
+        color: red;
+        display: none;
+    }
 }
 
 
@@ -56,6 +60,8 @@ body {
     &__element {
         padding: 15px;
         border-bottom: 1px solid #27615C;
+        display: flex;
+        justify-content: space-between;
     }
     &__element:nth-last-child(1) {
         border: none;
