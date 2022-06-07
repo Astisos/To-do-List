@@ -60,6 +60,20 @@ body {
     &__element:nth-last-child(1) {
         border: none;
     }
+    &__element .fas {
+       margin-left: 10px;
+       font-size: 20px;
+       cursor: pointer;
+    }
+    &__element .fa-check {
+        color: rgb(12, 231, 12);
+     }
+     &__element .fa-pen {
+        color: rgb(49, 32, 90);
+     }
+     &__element .fa-times {
+        color: rgb(242, 60, 60);
+     }
 }
 
 
