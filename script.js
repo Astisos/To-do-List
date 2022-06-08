@@ -5,6 +5,16 @@ const headerError = document.querySelector('.header__error');
 const listArea = document.querySelector('.list_place__list');
 const btnComplete = document.querySelectorAll('.fa-check');
 
+
+//POPUP
+const popup = document.querySelector('.popup');
+const popupInput = document.querySelector('.popup__input');
+const btnCancel = document.querySelector('.cancel');
+const btnAccept = document.querySelector('.accept');
+const popupInfo = document.querySelector('.popup__info')
+let editedToDo = ''; 
+
+
 let ID = 0;
 
 const checkInput = () => {
@@ -19,7 +29,6 @@ const checkInput = () => {
 }
 
 const addTask = (inputText) => {
-    console.log(inputText);
     const newTask = document.createElement('li');
     newTask.setAttribute("id", ID);
 
@@ -60,6 +69,8 @@ checkClick = (e) => {
     
     const selectedTarget = e.target;
 
+    if (selectedTarget !== "") {
+
     if (selectedTarget.classList.contains('complete')){
        selectedTarget.closest('li').classList.toggle('completed');
        selectedTarget.closest('.complete').classList.toggle('completed');
@@ -71,13 +82,35 @@ checkClick = (e) => {
         selectedTarget.closest('li').remove();
     }
 }
+}
 
 const editTask = (e) => {
-    // here function for editing task
+
+    popup.style.display = "flex";
+    const oldValue = e.target.closest('li').id;
+    editedToDo = document.getElementById(oldValue);
+    popupInput.value = editedToDo.firstChild.textContent;
+
+}
+
+const changeTask = () => {
+
+    if (popupInput.value !== "") {
+        editedToDo.firstChild.textContent = popupInput.value;
+        closePopup()
+    } else {
+        popupInfo.textContent = "Enter new task content!"
+    }
+
 }
 
 
+const closePopup = () => {
+    popup.style.display = "none";
+    popupInfo.textContent = "";
+}
 
-
+btnAccept.addEventListener('click', changeTask)
+btnCancel.addEventListener('click', closePopup)
 btnSubmit.addEventListener('click', checkInput);
 listArea.addEventListener('click', checkClick);
