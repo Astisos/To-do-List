@@ -65,6 +65,9 @@ body {
         display: flex;
         justify-content: space-between;
     }
+    &__element.completed {
+        text-decoration: line-through;
+    }
     &__element:nth-last-child(1) {
         border: none;
     }
@@ -78,6 +81,9 @@ body {
      }
      &__element .fa-check:hover {
         color: rgb(3, 137, 3);
+     }
+     &__element .fa-check.completed {
+         color: rgb(79, 82, 92);
      }
     &__element .fa-pen {
         color: rgb(49, 32, 90);
