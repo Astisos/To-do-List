@@ -23,6 +23,7 @@ const checkInput = () => {
     if (inputText !== "") {
         headerError.style.display = "none";
         addTask(inputText);
+       input.value = "";
     } else {
        headerError.style.display = "block";
     }
@@ -51,11 +52,9 @@ const createToolsArea = (newTask) => {
     completeBtn.classList.add('complete', 'fas', 'fa-check')
 
     const editBtn = document.createElement('i')
-    // editBtn.innerHTML = `</i><i class="fas fa-pen edit">`
     editBtn.classList.add('edit', 'fas', 'fa-pen')
 
     const deleteBtn = document.createElement('i')
-    // deleteBtn.innerHTML = `<i class="fas fa-times delete"></i>`
     deleteBtn.classList.add('delete', 'fas', 'fa-times')
 
 
@@ -110,6 +109,11 @@ const closePopup = () => {
     popupInfo.textContent = "";
 }
 
+const clearAll = () => {
+    listArea.textContent = "";
+}
+
+btnClear.addEventListener('click', clearAll)
 btnAccept.addEventListener('click', changeTask)
 btnCancel.addEventListener('click', closePopup)
 btnSubmit.addEventListener('click', checkInput);
