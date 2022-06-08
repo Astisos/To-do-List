@@ -21,7 +21,6 @@ const addTask = (inputText) => {
     const newTask = document.createElement('li');
     newTask.setAttribute("id", ID);
 
-    // newTask.innerHTML = ` <li class="list_place__element">${inputText}<i class="fas fa-check"></i><i class="fas fa-pen"></i><i class="fas fa-times"></i></li>
     newTask.innerText = `${inputText}`
     
 
